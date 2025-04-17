@@ -130,7 +130,7 @@ ros2_dist_dic = {
     'eoan':{"tsinghua","huawei","packages.ros","https.packages.ros"},
     'focal':{"tsinghua","huawei","packages.ros","https.packages.ros"},
     'jessie':{"tsinghua","huawei"},
-    'jammy':{"tsinghua","huawei","packages.ros","https.packages.ros"},
+    'jammy':{"tsinghua","huawei","packages.ros","https.packages.ros"}, 
     'victoria':{"tsinghua","huawei","packages.ros","https.packages.ros"},
     'noble':{"tsinghua","huawei","packages.ros","https.packages.ros"},
     'xia':{"tsinghua","huawei","packages.ros","https.packages.ros"},
@@ -242,7 +242,13 @@ class Tool(BaseTool):
         PrintUtils.print_info("根据您的系统，为您推荐安装源为{}".format(mirrors))
         source_data = ''
         for mirror in mirrors:
-            source_data += 'deb [arch={}]  {} {} main\n'.format(arch,mirror,osversion.get_codename())
+            code = osversion.get_codename()
+            if code == "xia":
+                code = "noble"
+            elif code == "victoria":
+                code = "jammy"
+
+            source_data += 'deb [arch={}]  {} {} main\n'.format(arch,mirror,code)
         FileUtils.delete('/etc/apt/sources.list.d/ros-fish.list')
         FileUtils.new('/etc/apt/sources.list.d/',"ros-fish.list",source_data)
 
