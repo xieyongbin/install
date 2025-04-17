@@ -131,6 +131,7 @@ ros2_dist_dic = {
     'focal':{"tsinghua","huawei","packages.ros","https.packages.ros"},
     'jessie':{"tsinghua","huawei"},
     'jammy':{"tsinghua","huawei","packages.ros","https.packages.ros"},
+    'victoria':{"tsinghua","huawei","packages.ros","https.packages.ros"},
     'noble':{"tsinghua","huawei","packages.ros","https.packages.ros"},
     'stretch':{"tsinghua","huawei","packages.ros","https.packages.ros"},
     'trusty':{"tsinghua","huawei"},
